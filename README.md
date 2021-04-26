@@ -15,7 +15,7 @@ $ cmake -B ./build -G <preferred generator>
 
 4. Then run build command:
 ```
-$ cmake --build ./build --config <Debug|Release>
+$ cmake --build ./build --config <Debug|Release> -DCMAKE_BUILD_TYPE=<Debug|Release>
 ```
 
 5. You've done! The builded binary file available in the build directory.
