@@ -2,13 +2,13 @@
 
 namespace qtm {
 
-void qtm_data::calc_fs_if_outdated(qtm const &qtm) {
+void qtm_data::calc_fs_if_outdated(qtm &qtm); {
   if (qtm.is_fs_outdated()) {
-    const_cast<class qtm &>(qtm).calc_final_states();
+    qtm.calc_final_states();
   }
 }
 
-double qtm_data::calc_avg_queue(qtm const &qtm) {
+double qtm_data::calc_avg_queue(qtm &qtm); {
   qtm_data::calc_fs_if_outdated(qtm);
 
   std::uint64_t i = 1;
@@ -24,7 +24,7 @@ double qtm_data::calc_avg_queue(qtm const &qtm) {
   return res;
 };
 
-double qtm_data::calc_ete(qtm const &qtm) {
+double qtm_data::calc_ete(qtm &qtm); {
   qtm_data::calc_fs_if_outdated(qtm);
 
   std::uint64_t i = 0;
@@ -37,19 +37,19 @@ double qtm_data::calc_ete(qtm const &qtm) {
   return res;
 };
 
-double qtm_data::calc_avg_time_queue(qtm const &qtm) {
+double qtm_data::calc_avg_time_queue(qtm &qtm); {
   qtm_data::calc_fs_if_outdated(qtm);
 
   return qtm_data::calc_avg_queue(qtm) / qtm.channel_count() * qtm.mu();
 };
 
-double qtm_data::calc_perc_served_req(qtm const &qtm) {
+double qtm_data::calc_perc_served_req(qtm &qtm); {
   qtm_data::calc_fs_if_outdated(qtm);
 
   return 1. - qtm.final_states().back();
 };
 
-double qtm_data::calc_avg_count_served_req(qtm const &qtm) {
+double qtm_data::calc_avg_count_served_req(qtm &qtm); {
   qtm_data::calc_fs_if_outdated(qtm);
 
   std::uint64_t i = 0;
@@ -63,7 +63,7 @@ double qtm_data::calc_avg_count_served_req(qtm const &qtm) {
   return res;
 };
 
-double qtm_data::calc_avg_count_req(qtm const &qtm) {
+double qtm_data::calc_avg_count_req(qtm &qtm); {
   qtm_data::calc_fs_if_outdated(qtm);
 
   std::uint64_t i = 0;
@@ -73,6 +73,12 @@ double qtm_data::calc_avg_count_req(qtm const &qtm) {
     ++i;
   }
   return res;
-}
+};
+
+double qtm_data::calc_avg_count_unserved_req(qtm &qtm); {
+  qtm_data::calc_fs_if_outdated(qtm);
+
+  return qtm_data::calc_avg_count_req(qtm) - qtm_data::calc_avg_count_served_req(qtm);
+};
 
 }; // namespace qtm
