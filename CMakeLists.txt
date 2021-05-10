@@ -15,7 +15,7 @@ if(Boost_FOUND)
 
   set_target_properties(libqtmcalc PROPERTIES PREFIX "")
 
-  target_sources(libqtmcalc PRIVATE 
+  target_sources(libqtmcalc PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/core.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/data.cpp
   )
