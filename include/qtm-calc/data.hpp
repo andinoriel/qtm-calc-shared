@@ -69,6 +69,13 @@ public:
    * @param[in] qtm Instance of qtm::qtm core class
    */
   static double calc_avg_count_req(qtm const &qtm);
+  /**
+   * Perform calculation of the average count of unserved requests for a given
+   * instance of the queuing system and get the result
+   *
+   * @param[in] qtm Instance of qtm::qtm core class
+   */
+  static double calc_avg_count_unserved_req(qtm const &qtm);
 };
 
 }; // namespace qtm
