@@ -1,6 +1,6 @@
 # qtm-calc-shared
 
-[![CMake](https://github.com/andinoriel/qtm-calc-shared/actions/workflows/cmake.yml/badge.svg)](https://github.com/andinoriel/qtm-calc-shared/actions/workflows/cmake.yml)
+[![Build](https://github.com/andinoriel/qtm-calc-shared/actions/workflows/build.yml/badge.svg)](https://github.com/andinoriel/qtm-calc-shared/actions/workflows/build.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 qtm-calc-shared is a shared version of [qtm-calc](https://github.com/andinoriel/qtm-calc) intended for use via CMake.
